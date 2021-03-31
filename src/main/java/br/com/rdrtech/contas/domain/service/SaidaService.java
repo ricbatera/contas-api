@@ -57,7 +57,7 @@ public class SaidaService {
 		BigDecimal valorParcela = new BigDecimal(valor).divide(new BigDecimal(parcelas),2, RoundingMode.HALF_EVEN);
 		Calendar hoje = Calendar.getInstance();
 		Calendar vencimento = converteVencimento(dataVencimento);
-		if(vencimento.compareTo(hoje) >= 0) {			
+		//if(vencimento.compareTo(hoje) >= 0) {			
 			for (int i = 0; i < parcelas; i++) {
 				LocalDate venc = LocalDateTime.ofInstant(vencimento.toInstant(), vencimento.getTimeZone().toZoneId()).toLocalDate();
 				String valorParc = valorParcela.toString();
@@ -71,7 +71,7 @@ public class SaidaService {
 				parcelasGeradas.add(parcela);
 				vencimento.set(Calendar.MONTH, (vencimento.get(Calendar.MONTH)+1));
 			}
-		}
+		//}
 		return parcelasGeradas;
 	}
 	
