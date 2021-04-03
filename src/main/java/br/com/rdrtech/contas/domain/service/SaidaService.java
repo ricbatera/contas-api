@@ -52,10 +52,14 @@ public class SaidaService {
 		return repoSaida.findAll();
 	}
 	
+	public void deleteAll() {
+		repoSaida.deleteAll();
+	}
+	
 	public List<Parcela> criaParcelas(int parcelas, Double valor, LocalDate dataVencimento, String situacao, Saida saida) {
 		List<Parcela>parcelasGeradas = new ArrayList<>();		
 		BigDecimal valorParcela = new BigDecimal(valor).divide(new BigDecimal(parcelas),2, RoundingMode.HALF_EVEN);
-		Calendar hoje = Calendar.getInstance();
+		//Calendar hoje = Calendar.getInstance();
 		Calendar vencimento = converteVencimento(dataVencimento);
 		//if(vencimento.compareTo(hoje) >= 0) {			
 			for (int i = 0; i < parcelas; i++) {

@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,12 @@ public class ParcelaController {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping
+	public ResponseEntity<?>delete(){
+		repoService.deleteAll();
+		return ResponseEntity.noContent().build();
 	}
 
 }

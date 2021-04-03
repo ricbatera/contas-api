@@ -19,4 +19,8 @@ public class ParcelaService {
 		}
 		return null;
 	}
+	
+	public void deleteAll() {
+		repoConta.deleteAll();
+	}
 }
