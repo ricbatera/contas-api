@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +26,12 @@ public class ParcelaController {
 		if (repoService.pagarParcela(id) == null) {
 			return ResponseEntity.notFound().build();
 		}
+		return ResponseEntity.ok().build();
+	}
+	
+	@PutMapping("/pagar-cartao/{id}/{data}")
+	public ResponseEntity<?> pagarCartao(@PathVariable Long id, @PathVariable String data ){
+		repoService.pagarCartao(id, data);
 		return ResponseEntity.ok().build();
 	}
 	

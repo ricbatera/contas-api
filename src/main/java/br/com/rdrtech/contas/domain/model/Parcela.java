@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
@@ -39,5 +40,14 @@ public class Parcela {
 	@ManyToOne
 	@JoinColumn(name = "saida_id")
 	private Saida saida;
+
+
+	@Override
+	public String toString() {
+		return "Parcela [id=" + id + ", parcelaNumero=" + parcelaNumero + ", situacao=" + situacao + ", dataVenvimento="
+				+ dataVenvimento + "]";
+	}
+	
+	
 
 }
